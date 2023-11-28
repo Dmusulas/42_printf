@@ -6,7 +6,7 @@
 #    By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 16:28:01 by dmusulas          #+#    #+#              #
-#    Updated: 2023/11/24 16:50:40 by dmusulas         ###   ########.fr        #
+#    Updated: 2023/11/28 22:02:13 by dmusulas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,16 @@ NAME         = libftprintf.a
 INCLUDES_DIR = ./include
 INCS         = -I $(INCLUDES_DIR) -I $(LIBFT_DIR)
 LIBFT_DIR    = ./libft
-LIBFT        = $(LIBFT_DIR)/libft.a
+LIBFT_FILENAME = libft.a
+LIBFT        = $(LIBFT_DIR)/$(LIBFT_FILENAME)
 OBJS         = $(SRCS:.c=.o)
-SRCS         = ./srcs/ft_printf.c\
+SRCS         = ./srcs/ft_printf.c \
+			   ./srcs/ft_convert_s.c \
+			   ./srcs/ft_convert_c.c \
+			   ./srcs/ft_convert_p.c \
+			   ./srcs/ft_convert_ll.c \
+			   ./srcs/ft_convert_d.c \
+			   ./srcs/ft_convert_x.c
 
 all: $(NAME)
 
@@ -27,10 +34,12 @@ $(NAME): $(LIBFT) $(OBJS)
 	$(CCA) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $> -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
+	cp $(LIBFT) .
+	mv $(LIBFT_FILENAME) $(NAME)
 
 clean:
 	make clean -C $(LIBFT_DIR)

@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_d.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 21:43:10 by dmusulas          #+#    #+#             */
+/*   Updated: 2023/11/28 22:24:39 by dmusulas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/ft_printf.h"
+
+int	ft_convert_d(int d)
+{
+	int		len;
+	char	*ret;
+
+	len = 0;
+	if (d < 0)
+	{
+		ft_putchar_fd('-', 1);
+		d *= -1;
+	}
+	ret = generate_str_ll_base(d, 10);
+	len = ft_strlen(ret);
+	ft_putstr_fd(ret, 1);
+	free(ret);
+	return (len);
+}
