@@ -1,6 +1,6 @@
 CC = cc
 CCA = ar rc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = libft.a
 OBJS = ${SRCS:.c=.o}
 SRCS =	ft_atoi.c\

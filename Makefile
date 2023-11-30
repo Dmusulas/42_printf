@@ -6,13 +6,13 @@
 #    By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 16:28:01 by dmusulas          #+#    #+#              #
-#    Updated: 2023/11/28 22:02:13 by dmusulas         ###   ########.fr        #
+#    Updated: 2023/11/30 16:06:27 by dmusulas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC           = cc
 CCA          = ar rcs
-CFLAGS       = -Wall -Wextra -Werror
+CFLAGS       = -Wall -Wextra -Werror -g
 NAME         = libftprintf.a
 INCLUDES_DIR = ./include
 INCS         = -I $(INCLUDES_DIR) -I $(LIBFT_DIR)
@@ -24,9 +24,11 @@ SRCS         = ./srcs/ft_printf.c \
 			   ./srcs/ft_convert_s.c \
 			   ./srcs/ft_convert_c.c \
 			   ./srcs/ft_convert_p.c \
-			   ./srcs/ft_convert_ll.c \
+			   ./srcs/ft_convert_nums.c \
 			   ./srcs/ft_convert_d.c \
-			   ./srcs/ft_convert_x.c
+			   ./srcs/ft_convert_ll.c \
+			   ./srcs/ft_convert_x.c \
+			   ./srcs/ft_convert_u.c
 
 all: $(NAME)
 

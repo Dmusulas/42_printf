@@ -6,7 +6,7 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 21:58:03 by dmusulas          #+#    #+#             */
-/*   Updated: 2023/11/28 22:06:45 by dmusulas         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:45:40 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_convert_x(int d, int cap)
 
 	len = 0;
 	i = 0;
-	ret = generate_str_ll_base(d, 16);
+	ret = generate_num_base(d, 16);
 	len = ft_strlen(ret);
 	if (cap == 1)
 	{

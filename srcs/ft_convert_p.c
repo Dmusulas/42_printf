@@ -6,33 +6,44 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:35:52 by dmusulas          #+#    #+#             */
-/*   Updated: 2023/11/28 22:25:37 by dmusulas         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:04:55 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_convert_p(unsigned long long c)
+static void	ft_str_tolower(char *s)
 {
-	char	*rtrn;
-	char	*start;
-	int		len;
-	int		i;
+	int	i;
 
-	len = 0;
 	i = 0;
-	start = ft_strdup("0x");
-	rtrn = generate_str_ll_base(c, 16);
-	len = ft_strlen(start) + ft_strlen(rtrn);
-	while (rtrn[i])
+	while (s[i])
 	{
-		if (rtrn[i] > 64 && rtrn[i] < 91)
-			rtrn[i] = ft_tolower(rtrn[i]);
+		if (s[i] > 64 && s[i] < 91)
+			s[i] = ft_tolower(s[i]);
 		i++;
 	}
-	ft_putstr_fd(start, 1);
+}
+
+int	ft_convert_p(size_t c)
+{
+	char	*rtrn;
+	int		len;
+
+	len = 0;
+	if (!c)
+	{
+		rtrn = ft_strdup("(nil)");
+		len = 5;
+	}
+	else
+	{
+		ft_putstr_fd("0x", 1);
+		rtrn = generate_ll_base(c, 16);
+		len = len + 2 + ft_strlen(rtrn);
+		ft_str_tolower(rtrn);
+	}
 	ft_putstr_fd(rtrn, 1);
-	free(start);
 	free(rtrn);
 	return (len);
 }
