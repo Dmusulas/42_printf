@@ -6,7 +6,7 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:50:51 by dmusulas          #+#    #+#             */
-/*   Updated: 2023/11/30 17:19:42 by dmusulas         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:08:48 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *s, ...)
 	va_list	args;
 	int		len;
 
+	if (!s)
+		return (-1);
 	va_start(args, s);
 	len = 0;
 	while (*s)

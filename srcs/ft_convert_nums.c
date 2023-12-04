@@ -6,7 +6,7 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:45:26 by dmusulas          #+#    #+#             */
-/*   Updated: 2023/11/30 17:23:59 by dmusulas         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:03:47 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,3 +99,11 @@ char	*generate_ll_base(unsigned long long num, int base)
 	rtrn = convert_ll_base(dup_num, base, rtrn, count);
 	return (rtrn);
 }
+// #include <stdio.h>
+// int main(void)
+// {
+// 	printf("Test: %s\n", generate_ll_base(11, 2));
+// 	printf("Test: %s", generate_ll_base(11, 16));
+// 	printf("Test: %s", generate_ll_base(11, 18));
+// 	return EXIT_SUCCESS;
+// }
